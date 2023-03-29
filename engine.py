@@ -1,4 +1,17 @@
-def execute_order(user_balances, order_book, order_type, base_currency, quote_currency, amount, price=None, limit_price=None, stop_price=None):
+user_balances = {
+    'BTC': 5.0,
+    'ETH': 10.0,
+    'USDT': 1000.0
+}
+
+order_book = {
+    'BTC-ETH': {
+        'bids': [{'price': 0.03, 'amount': 10}, {'price': 0.029, 'amount': 5}],
+        'asks': [{'price': 0.032, 'amount': 7}, {'price': 0.033, 'amount': 12}]
+    }
+}
+
+def execute_order(order_type, base_currency, quote_currency, amount, price=None, limit_price=None, stop_price=None):
     order_type_logic = {
         'buy': {
             'order_book_key': f'{base_currency}-{quote_currency}',
