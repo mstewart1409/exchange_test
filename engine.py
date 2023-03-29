@@ -12,6 +12,7 @@ order_book = {
 }
 
 def execute_order(order_type, base_currency, quote_currency, amount, price=None, limit_price=None, stop_price=None):
+    global user_balances, order_book
     order_type_logic = {
         'buy': {
             'order_book_key': f'{base_currency}-{quote_currency}',
